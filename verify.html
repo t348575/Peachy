@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+        <title>Peachy ~ Verify</title>
+        <link rel='stylesheet' href='/dependencies/bootstrap.min.css'>
+        <link href="/dependencies/offlinefonts.css" rel="stylesheet">
+        <link rel="stylesheet" href="/dependencies/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/css/verify.css">
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        
+    </head> 
+    
+    <body class="bodyanimation">
+        <!--<div class="container-fluid">
+            <div class="row" style="margin-top: 15%;">
+                <div class="col-12 text-center">
+                    <div id="loader" class="row">
+                        <div class="sk-cube-grid">
+                            <div class="sk-cube sk-cube1"></div>
+                            <div class="sk-cube sk-cube2"></div>
+                            <div class="sk-cube sk-cube3"></div>
+                            <div class="sk-cube sk-cube4"></div>
+                            <div class="sk-cube sk-cube5"></div>
+                            <div class="sk-cube sk-cube6"></div>
+                            <div class="sk-cube sk-cube7"></div>
+                            <div class="sk-cube sk-cube8"></div>
+                            <div class="sk-cube sk-cube9"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8 text-center poppins">
+                            <h2></h2>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="container-fluid" style="padding: 2rem;">
+            <div class="card poppins" id="start">
+            
+                <!--    Card Header     -->
+            
+                <div class="card-header">
+                    <h4 class="unselectable padding card-title">A few more questions: </h2>
+                </div>
+            
+                <!--    Card Body    -->
+            
+                <div id="holder" class="card-body">
+            
+                    <div class="group">
+                        <input type="text" id="name" required autofocus>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Name:
+                            <i class="fas fa-user"></i>
+                        </label>
+                    </div>
+                    <div class="group">
+                        <input type="date" id="dob" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Date of Birth:
+                            <i class="fas fa-calendar-alt"></i>
+                        </label>
+                    </div>
+                    <button id="continue" class="btn btn-lg btn-block btn-outline-success">Continue</button>
+                </div>
+            
+                <!--    Card Footer     -->
+            
+                <div class="container-fluid padding text-center card-footer">
+                    <button class="btn btn-info">Help&nbsp;
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                </div>
+            
+            </div>
+            <div id="load" style="display: none;" class="unselectable">
+                <div class="spinner" style="margin-top: 10%;"></div>
+                <div class="container-fluid text-center padding" id="spinner">
+                    <h3 class="poppins" style="font-size: 3rem; color: #fff">Adding & Verifying...</h3>
+                </div>
+            </div>
+            <div class="row unselectable poppins">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="container-fluid" id="end" style="display: none;">
+                        <h1 style="font-size: 3rem; color: #fff; margin-top: 3rem;"></h1>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </body>
+
+    <script src="/dependencies/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/verify.js"></script>
+    <script>
+        document.addEventListener('click', function (e) {
+            if (document.activeElement.toString() == '[object HTMLButtonElement]') {
+                document.activeElement.blur();
+            }
+        });
+    </script>
+
+</html>

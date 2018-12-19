@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+
+    <head>
+        <title>Peachy ~ Account Info</title>
+    
+        <!--    Styles     -->
+    
+        <link rel='stylesheet' type='text/css' href='css/accountinfo.css'>
+        <link rel='stylesheet' type='text/css' href='css/w3.css'>
+        <link href="/dependencies/offlinefonts.css" rel="stylesheet">
+        <link rel="stylesheet" href="/dependencies/bootstrap.min.css">
+        <link rel="stylesheet" href="/dependencies/fontawesome-all.min.css">
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    </head>
+
+    <body class="bodyanimation">
+
+        <!--    Loading     -->
+
+        <div class="spinner" style="margin-top: 10%;"></div>
+        <div class="container-fluid text-center padding" id="spinner">
+            <h3 class="poppins" style="font-size: 3rem; color: #fff">Loading...</h3>
+        </div>
+
+        <!--    Navigation     -->
+
+        <div id="navigation" class="container-fluid" style="display: none;">
+            <button type="button" id="add" class="ripple btn btn-danger btn-fab float-right">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button type="button" id="add2" class="show2 ripple btn btn-fab-child float-right">
+                <i class="fas fa-cog" id="iadd2" data-toggle="tooltip" data-placement="right" title="Toggle b/w modifying account setting and service settings"></i>
+            </button>
+            <button type="button" id="add3" class="show3 ripple btn btn-fab-child float-right" onclick="window.location.replace('./');">
+                <i class="fas fa-sign-in-alt" data-toggle="tooltip" data-placement="right" title="Leave the account settings page."></i>
+            </button>
+        </div>
+
+        <!--    Services Table      -->
+
+        <div class="container-fluid">
+            <div class="row padding">
+                <div style="display: none;" id="in" class="col-2"></div>
+                <div class="col-12" id="mainpoint">
+                    <div class="card" style="display: none;">
+                        <div class="card-header">
+                            <div class="padding poppins unselectable">
+                                <h2 class="card-title">Services Used:</h2>
+                            </div>
+                        </div>
+                        <div class="card-body padding">
+                            <div class="row" id="settings" style="display: none;">
+                                <div class="col-12 text-left">
+                                    <div class="form-group">
+                                        <div class="group">
+                                            <input type="password" id="pwdc" required>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label>Current password:
+                                                <i class="fas fa-key"></i>
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <input type="password" id="pwdn" required>
+                                            <span class="highlight"></span>
+                                            <span class="bar"></span>
+                                            <label>New password:
+                                                <i class="fas fa-key"></i>
+                                            </label>
+                                        </div>
+                                        <button class="btn btn-warning">Change Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table-fit table table-hover unselectable" id="table" style="display: none;">
+                                <thead class="text-center">
+                                    <tr class="row roboto">
+                                        <th class="col-2 bold">No</th>
+                                        <th class="col-3 bold">Id</th>
+                                        <th class="col-3 bold">Type</th>
+                                        <th class="col-4 bold">Expiry</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr class="row roboto" id="none" style="display: none;">
+                                        <td colspan="4">None of the services have been used!</td>
+                                    </tr>
+                                    <tr class="row roboto" id="1" style="display: none;">
+                                        <td class="light col-2">
+                                            <p>1</p>
+                                        </td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-4"></td>
+                                    </tr>
+                                    <tr class="row roboto" id="2" style="display: none;">
+                                        <td class="light col-2">
+                                            <p>2</p>
+                                        </td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-4"></td>
+                                    </tr>
+                                    <tr class="row roboto" id="3" style="display: none;">
+                                        <td class="light col-2">
+                                            <p>3</p>
+                                        </td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-4"></td>
+                                    </tr>
+                                    <tr class="row roboto" id="4" style="display: none;">
+                                        <td class="light col-2">
+                                            <p>4</p>
+                                        </td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-4"></td>
+                                    </tr>
+                                    <tr class="row roboto" id="5" style="display: none;">
+                                        <td class="light col-2">
+                                            <p>5</p>
+                                        </td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-3"></td>
+                                        <td class="light col-4"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer padding">
+                            <div class="alert alert-info unselectable poppins bold">
+                                <strong>Info!</strong><p id="info">Right click or press and hold on service to edit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2" style="display: none;" id="in1"></div>
+            </div>
+        </div>
+
+        <!--    Specality Modal     -->
+
+        <div class="modal fade poppins unselectable" id="modal">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header padding">
+                        <h2 class="modal-title"></h2>
+                    </div>
+                    <div class="modal-body larger"></div>
+                    <div class="modal-footer">
+                        <button type="button" id="no" class="btn btn-danger" data-dismiss="modal"></button>
+                        <button type="button" id="yes" class="btn btn-success" data-dismiss="modal"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    Context Menu    -->
+
+        <ul class='custom-menu'>
+            <li data-action="1">View Statistics     <i class="fas fa-question" data-toggle="tooltip" data-placement="right" title="View the number of visitors, location, visit time, etc."></i></li>
+            <li data-action="2">Generate Link       <i class="fas fa-question" data-toggle="tooltip" data-placement="right" title="Copy link for this service to clipboard."></i></li>
+            <li data-action="3">Expire Now     <i class="fas fa-question" data-toggle="tooltip" data-placement="right" title="Set the expiry date of the service to now."></i></li>
+            <li data-action="4">Close Service    <i class="fas fa-question" data-toggle="tooltip" data-placement="right" title="Delete this service and all information associated with it."></i></li>
+        </ul>
+
+        <!--    Copy Text Area      -->
+
+        <textarea style="display: none;"></textarea>
+
+    </body>
+
+    <!--    Scripts     -->
+
+    <script src="/dependencies/jquery.min.js"></script>
+    <script src="/dependencies/popper.min.js"></script>
+    <script src="/dependencies/bootstrap.min.js"></script>
+    <script src="js/longpress.js"></script>
+    <script type='text/javascript' src='js/accountinfo.js'></script>
+    <script>
+        document.addEventListener('click', function (e) {
+            if (document.activeElement.toString() == '[object HTMLButtonElement]') {
+                document.activeElement.blur();
+            }
+        }); 
+    </script>
+
+</html>
