@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+
+    <head>
+        
+        <title>Peachy</title>
+
+        <!--    Styles     -->
+
+        <link rel='stylesheet' type='text/css' href='css/index.css'>
+        <link href="/dependencies/offlinefonts.css" rel="stylesheet">
+        <link rel="stylesheet" href="/dependencies/bootstrap.min.css">
+        <link rel="stylesheet" href="/dependencies/fontawesome-all.min.css">
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    </head>
+
+    <body>
+
+        <!--    Navigation      -->
+    
+        <nav class="navbar navbar-expand-lg bg-light navbar-light roboto fixed-top bg-transparent">
+            <a id="home" onclick="window.location.replace('./');" class="navbar-brand point pacifico padding">Peachy</a>
+            <button class="navbar-toggler" id="pop" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="exCollapsingNavbar"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse white" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <a id='vote' onclick="window.location.replace('./poll.html');" class="point unselectable roboto ">Poll</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <a id='msgboard' onclick="window.location.replace('./msgboard.html');" class="point unselectable roboto ">Message Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-sticky-note"></i>
+                        <a id='quiz' onclick="window.location.replace('./quiz.html');" class="point unselectable roboto ">Quiz</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" style="display: none;" id="accountbtn">
+                        <i class="fas fa-user"></i>
+                        <a id="account" onclick="send();" class="point unselectable roboto ">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <a onclick="precheck();" id="log" class="point unselectable roboto ">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <a id='signup' data-toggle="modal" data-target="#login" class="point unselectable roboto">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+        <!--    Login Modal   -->
+    
+        <div id="start"></div>
+        <div class="modal fade poppins" id="login">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login / Signup</h4>
+                        <button type="button" class="close" onclick="closelogin();">&times;</button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div id="lload" class="unselectable" style="display: none;">
+                                <div class="spinner">
+                                    <div class="bounce1"></div>
+                                    <div class="bounce2"></div>
+                                    <div class="bounce3"></div>
+                                </div>
+                            </div>
+                            <div class="container-fluid" id="lform">
+                                <div class="form-group">
+                                    <div class="group">
+                                        <input type="email" id="lemail" required autocomplete="email" autofocus onfocus='validateEmail(this)' onblur='validateEmail(this);'>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Email    <i class="fas fa-envelope"></i></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="group">
+                                        <input type="password" id="pwd" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Password     <i class="fas fa-key"></i></label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p>
+                                        <button id="submit" class="btn btn-primary">Login</button>
+                                    </p>
+                                    <p class="ml-auto">
+                                        <button id="create" class="btn btn-primary">Create Account</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <div class="alert alert-danger" id="incorrect" style="display: none;">
+                            <strong id="errormsg">Error!</strong>
+                        </div>
+                        <div class="col-3"></div>
+                        <button type="button" class="btn btn-danger" onclick="closelogin();">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!--    Landing Image     -->
+        
+        <div id="home2" class="scrollTo" data-paroller-factor="0.5">
+            <div class="unselectable landing-text poppins padding">
+                <h1 class="display-2">Peachy</h1>
+                <h3>Create, Explore, Enjoy.</h3>
+                <button id="btn" type="button" class="btn btn-primary btn-lg">Get Started</button>
+            </div>
+        </div>
+
+        <div class="scrollTo one">
+            <div id="one">
+            
+                <!--    Welcome Section    -->
+            
+                <div class="container-fluid poppins unselectable">
+                    <div class="row welcome text-center">
+                        <div class="col-12">
+                            <h1 class="display-4">For everyone</h1>
+                        </div>
+                        <hr>
+                        <div class="col-12">
+                            <p class="lead">
+                                User friendly, fast and setup time makes our services ideal for buisnesses and individuals alike, to be used to your heart's
+                                content
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!--    Build    -->
+            
+                <div class="container-fluid unselectable">
+                    <div class="row text-center poppins build">
+                        <div class="col-4">
+                            <i class="fas fa-bold"></i>
+                            <h3>BOOTSTRAP 4</h3>
+                            <p>Built with latest version of Bootstrap, Bootstrap 4.</p>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-bolt"></i>
+                            <h3>LIGHTNING FAST</h3>
+                            <p>Snappy, light javascript for quick, seemless use.</p>
+                        </div>
+                        <div class="col-4">
+                            <i class="fab fa-php"></i>
+                            <h3>PHP 7.2</h3>
+                            <p>Build with PHP 7.2, the lord of backend.</p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+    
+        <!--    Get Started     -->
+
+        <div class="scrollTo two">
+            <div id="two">
+                <div class="container-fluid unselectable">
+                    <div class="row poppins text-center padding">
+                        <div class="col-12">
+                            <h1 class="display-1">Get Started</h1>
+                            <hr class="light">
+                        </div>
+                    </div>
+                    <div class="row unselectable text-center arvo" id="getstarted">
+                        <div class="col-6">
+                            <h2 style="opacity: 0;">
+                                <a data-toggle="modal" data-target="#login" class="point unselectable">Create Account</a>
+                            </h2>
+                            <h2 style="opacity: 0;">
+                                <i class="fas fa-arrow-down"></i>
+                            </h2>
+                            <br>
+                            <h2 style="opacity: 0;">
+                                <a data-toggle="modal" data-target="#login" class="point unselectable">Login</a>
+                            </h2>
+                            <h2 style="opacity: 0;">
+                                <i class="fas fa-arrow-down"></i>
+                            </h2>
+                            <br>
+                            <h2 style="opacity: 0;">Fire Away!</h2>
+                        </div>
+                        <div class="col-6">
+                            <img class="img" src="img/getstarted.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scrollTo three">
+
+            <!--    Meet the team   -->
+            
+            <div id="four" class="container-fluid unselectable">
+                <div class="row welcome text-center poppins">
+                    <div class="col-12">
+                        <h1 class="display-4">Meet the team</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <!--    Cards   -->
+            
+            <div class="container-fluid unselectable">
+                <div class="row poppins">
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-4">
+                        <div class="card" id="five">
+                            <img class="card-img-top" src="./img/team1.png">
+                            <div class="card-body">
+                                <h4 class="card-title">John Doe</h4>
+                                <p class="card-text">John is an enterpreneur with almost 20 years of experience in the field</p>
+                                <a href="#" class="btn btn-outline-secondary">See Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-4" id="six">
+                        <div class="card">
+                            <img class="card-img-top" src="./img/team2.png">
+                            <div class="card-body">
+                                <h4 class="card-title">Mary Jo</h4>
+                                <p class="card-text">Mary is a designer with almost 10 years of digital design experience</p>
+                                <a href="#" class="btn btn-outline-secondary">See Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-12 col-lg-4 col-xl-4" id="seven">
+                        <div class="card">
+                            <img class="card-img-top" src="./img/team3.png">
+                            <div class="card-body">
+                                <h4 class="card-title">Phil Kay</h4>
+                                <p class="card-text">Phil is a developer with over 5 years of web development experience</p>
+                                <a href="#" class="btn btn-outline-secondary">See Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+        </div>
+        
+        <div class="scrollTo">
+
+            <!--    Connect     -->
+            
+            <div class="container-fluid padding unselectable" id="eight">
+                <div class="row text-center">
+                    <div class="col-12 poppins">
+                        <h2>Connect</h2>
+                    </div>
+                    <div class="col-12 social">
+                        <a href="#" class="">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fab fa-google-plus-g"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!--    Footer  -->
+            
+            <footer id="nine" class="unselectable dosis bold">
+                <div class="container-fluid padding">
+                    <div class="row text-center padding">
+                        <div class="col-xs-12 col-md-4">
+                            <hr class="light">
+                            <h5>Contact Details</h5>
+                            <hr class="light">
+                            <p>+91 73974-40075</p>
+                            <p>contacts.peachy@gmail.com</p>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <hr class="light">
+                            <h5>Contact Hours</h5>
+                            <hr class="light">
+                            <p>Monday: 9am - 5pm</p>
+                            <p>Sunday & Sunday: closed</p>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <hr class="light">
+                            <h5>Quick Links</h5>
+                            <hr class="light">
+                            <p>To be updated soon</p>
+                            <!--<p>City, State, 600042</p>
+                                    <p>City, State, 600042</p>
+                                    <p>City, State, 600042</p>
+                                    <p>City, State, 600042</p>
+                                    <p>City, State, 600042</p>-->
+                        </div>
+                        <div class="col-12">
+                            <hr class="light">
+                            <h5>&copy; peachy.serveo.net</h5>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!--    Scroll to top   -->
+        
+        <button type="button" id="add1" class="ripple btn bmd-btn-fab float-right" style="display: none;">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </body>
+
+    <!--    Scripts     -->
+    
+    <script src="/dependencies/jquery.min.js"></script>
+    <script src="/dependencies/popper.min.js"></script>
+    <script src="/dependencies/bootstrap.min.js"></script>
+    <script src="dependencies/scrollreveal.min.js"></script>
+    <script type='text/javascript' src='js/paroller.min.js'></script>
+    <script type="text/javascript" src="js/jquery.scrollify.js"></script>
+    <script type='text/javascript' src='js/index.js'></script>
+    <!--<script type="text/javascript" src="js/login.js"></script>-->
+    <script>
+        document.addEventListener('click', function (e) {
+            if (document.activeElement.toString() == '[object HTMLButtonElement]') {
+                document.activeElement.blur();
+            }
+        });
+    </script>
+    
+</html>
